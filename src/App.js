@@ -6,7 +6,12 @@ function App() {
   const [count, setCount] = useState(0)
   const [text, setText] = useState([])
 
+  const  handleSubmit = (e) => {
+    e.preventDefault();
 
+    setText(data)
+    console.log(text)
+  }
 
   return (
     <div>
@@ -18,7 +23,12 @@ function App() {
           <input type="number" value={count} onChange={(e) => { setCount(e.target.value) }} />
           <button type="submit">GENERATE</button>
         </form>
+        <div>{text.map((item, index) => {
 
+          return(
+            <p key={index}>{item}</p>
+          )
+        })}</div>
     </div>
   );
 }
