@@ -1,3 +1,4 @@
+import { Box, Button, TextField, Typography } from "@mui/material"
 import React, { useState } from "react"
 import data from "./Data"
 
@@ -25,24 +26,36 @@ function App() {
   }
 
   return (
-    <div>
-        <h1>
+    <Box>
+        <Typography
+          variant="h3"
+        >
           Lorem Ipsum Generator
-        </h1>
+        </Typography>
         <form onSubmit={handleSubmit}>
-          <span>Paragraphs: </span>
+          <Typography
+            variant="h5"
+          >Paragraphs: </Typography>
           {/* this sets the state of count to whatever is typed in to the number input */}
-          <input type="number" value={count} onChange={(e) => { setCount(e.target.value) }} />
-          <button type="submit">GENERATE</button>
+          <TextField variant="outlined" type="number" value={count} onChange={(e) => { setCount(e.target.value) }} />
+          <Button 
+            type="submit"
+            variant="contained"
+          >GENERATE
+          </Button>
         </form>
         {/* looping over the array of data and displaying it on the page  */}
-        <div>{text.map((item, index) => {
+        <Box>{text.map((item, index) => {
           return(
-            <p key={index}>{item}</p>
+            <Typography 
+              variant="p" 
+              key={index}
+              color="textSecondary"
+            >{item}</Typography>
           )
         })}
-        </div>
-    </div>
+        </Box>
+    </Box>
   );
 }
 
