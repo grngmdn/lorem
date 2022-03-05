@@ -26,35 +26,87 @@ function App() {
   }
 
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: "#FBF2FB",
+          textAlign: "center",
+          width: "75vw",
+          marginTop: "50px",
+          marginBottom: "50px",
+          padding: "50px"
+        }}
+      >
         <Typography
-          variant="h3"
-        >
-          Lorem Ipsum Generator
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <Typography
-            variant="h5"
-          >Paragraphs: </Typography>
-          {/* this sets the state of count to whatever is typed in to the number input */}
-          <TextField variant="outlined" type="number" value={count} onChange={(e) => { setCount(e.target.value) }} />
-          <Button 
-            type="submit"
-            variant="contained"
-          >GENERATE
-          </Button>
-        </form>
-        {/* looping over the array of data and displaying it on the page  */}
-        <Box>{text.map((item, index) => {
-          return(
-            <Typography 
-              variant="p" 
-              key={index}
-              color="textSecondary"
-            >{item}</Typography>
-          )
-        })}
-        </Box>
+            variant="h4"
+            sx={{
+              fontWeight: "bold",
+              color: "#21254A"
+            }}
+          >
+            Lorem Ipsum Generator
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              paddingTop: "50px",
+              paddingBottom: "50px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Typography
+                variant="h6"
+                color= "textSecondary"
+                sx={{
+                  marginRight: "10px"
+                }}
+              >Paragraphs: 
+            </Typography>
+            <form 
+              onSubmit={handleSubmit}
+            >
+              {/* this sets the state of count to whatever is typed in to the number input */}
+              <TextField 
+                variant="outlined" 
+                type="number" 
+                value={count} 
+                onChange={(e) => { setCount(e.target.value) }} 
+                size= "small"
+              />
+              <Button 
+                type="submit"
+                variant="contained"
+                sx={{
+                  marginLeft: "10px"
+                }}
+              >GENERATE
+              </Button>
+            </form>
+          </Box>
+          
+          {/* looping over the array of data and displaying it on the page  */}
+          <Box>{text.map((item, index) => {
+            return(
+              <Typography 
+                variant="p" 
+                key={index}
+                color="textSecondary"
+              >{item}<br /><br /></Typography>
+            )
+          })}
+          </Box>
+      </Box>
+
     </Box>
   );
 }
